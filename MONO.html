@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monos Newsletter</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            padding: 40px 30px;
+            color: white;
+            border-bottom: 3px solid #D4AF37;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #E8E8E8;
+            margin: 12px 0 0 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #D4AF37;
+            margin-top: 15px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+            box-sizing: border-box;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .image-label {
+            font-size: 12px;
+            color: #D4AF37;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin: 0;
+            padding: 30px;
+            border-bottom: 1px solid #efefef;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 400;
+            color: #000;
+            margin: 0 0 15px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .brand-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+            font-weight: 300;
+        }
+
+        .kid-friendly {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 400;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #D4AF37;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background: #f5f5f5;
+            border-left: 3px solid #D4AF37;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .location-name {
+            color: #000;
+            font-weight: 600;
+        }
+
+        .location-detail {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .fact-box {
+            background: linear-gradient(135deg, #D4AF37 0%, #C9A227 100%);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: 400;
+            color: #000;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .breakwall {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            font-weight: 400;
+            border-left: 4px solid #D4AF37;
+            font-size: 15px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            gap: 15px;
+        }
+
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .timeline-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-weight: 500;
+            color: #000;
+            font-size: 13px;
+        }
+
+        .checklist {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 3px solid #D4AF37;
+        }
+
+        .checklist-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #efefef;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            background: #f5f5f5;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #efefef;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .comparison {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-box {
+            flex: 1;
+            padding: 18px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            text-align: center;
+            border-left: 3px solid #D4AF37;
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .date-header {
+            color: #D4AF37;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+        }
+
+        .visualization {
+            text-align: center;
+            font-size: 60px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Monos Dispatch</h1>
+            <p class="subtitle">A Letter About Journeys, Near and Far</p>
+            <p class="date-header">📅 October 28, 2025 | Sent from New York, NY to Travelers Everywhere</p>
+            <p class="tagline">"In every fleeting moment of travel, there is beauty worth remembering."</p>
+        </div>
+
+        <div class="image-placeholder">
+            <span class="image-label">🖼️ SUGGESTED IMAGE:</span>
+            Hero shot of Monos carry-on suitcase in minimalist airport or travel setting
+        </div>
+
+        <div class="section">
+            <p class="section-subtitle">🎬 A Message From Your Newsletter (Yes, We're Breaking the 4th Wall!)</p>
+            <div class="breakwall">
+                Okay, real talk: I'm literally a newsletter speaking directly to you right now. Pretty wild, right? But
+                here's why we do this—Monos is so thoughtfully designed, so carefully built, that we can't help but
+                share it. Whether you're packing for your first big trip or your hundredth adventure, you deserve travel
+                gear that gets it.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📍 Where Your Adventure Happens</h2>
+            <p class="section-subtitle">✈️ The Places We Reach</p>
+            <p class="brand-text">Monos travels with you, from coast to coast and across borders. We're here for every
+                journey:</p>
+
+            <div class="location-badge">
+                <span class="location-name">🇺🇸 USA (Everywhere)</span><br>
+                <span class="location-detail">From Seattle's rainy streets to Miami's sunny beaches. Boston's history to
+                    LA's dreams. We ship free on orders over $100.</span>
+            </div>
+
+            <div class="location-badge">
+                <span class="location-name">🇨🇦 Canada (Coast to Coast)</span><br>
+                <span class="location-detail">Vancouver to Toronto to Montreal—your perfect travel partner is one click
+                    away. Free shipping on orders over $100.</span>
+            </div>
+
+            <p class="kid-friendly">
+                Here's a cool fact: The word "Monos" comes from a Japanese idea called <strong>mono no aware</strong>.
+                It means finding beauty in moments that don't last forever—like that perfect sunset during your trip, or
+                the feeling when you finally arrive. That's what we're all about. ✨
+            </p>
+
+            <div class="image-placeholder">
+                <span class="image-label">🖼️ SUGGESTED IMAGE:</span>
+                Diverse travelers with Monos suitcases at iconic locations (NYC skyline, Canadian mountains, beach
+                boardwalks)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">⏰ When It All Begins</h2>
+            <p class="section-subtitle">🕐 Your 100-Day Adventure Window</p>
+            <p class="kid-friendly">
+                Order a Monos suitcase today and get 100 full days to test it out. That's more than 3 months! You could
+                take it on multiple trips, pack it in different ways, and really get to know it. If you absolutely love
+                it (and you will), you keep it. If not—send it back. No stress.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">📦</div>
+                    <div class="timeline-text"><strong>Day 1</strong><br>Unbox & Explore</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">✈️</div>
+                    <div class="timeline-text"><strong>Days 2–99</strong><br>Take It Everywhere</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">💭</div>
+                    <div class="timeline-text"><strong>Day 100</strong><br>It's Your Forever Friend</div>
+                </div>
+            </div>
+
+            <div class="fact-box">
+                ⚡ <strong>Lifetime Warranty:</strong> Break your Monos suitcase 10 years from now? We'll fix it. The
+                warranty lasts as long as you own it. That's our promise.
+            </div>
+
+            <div class="image-placeholder">
+                <span class="image-label">🖼️ SUGGESTED IMAGE:</span>
+                Timeline showing person packing, at airport, exploring destination, returning home with Monos suitcase
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌟 What Smart People Say About Us</h2>
+            <p class="section-subtitle">📰 Big Names. Big Praise.</p>
+            <div class="checklist">
+                <div class="checklist-item">✓ <strong>Forbes says:</strong> "The best carry-on to make travel days a
+                    breeze"</div>
+                <div class="checklist-item">✓ <strong>Wall Street Journal says:</strong> "Best carry-on luggage for
+                    every type of trip"</div>
+                <div class="checklist-item">✓ <strong>Fortune says:</strong> We have "a sense of perfectionism almost
+                    like Apple"</div>
+                <div class="checklist-item">✓ <strong>15,000+ real travelers gave us 5 stars</strong> ⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <p class="kid-friendly">
+                Translation? Everyone who knows good design thinks Monos is amazing. And they're right.
+            </p>
+
+            <div class="image-placeholder">
+                <span class="image-label">🖼️ SUGGESTED IMAGE:</span>
+                Collage of press logos (Forbes, WSJ, Fortune) OR real customer photos with different travelers
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🧳 Why Monos Feels Different</h2>
+            <p class="section-subtitle">💎 The Quality Difference</p>
+
+            <p class="brand-text">
+                In a world where most luggage is designed to look pretty in a store and then fall apart, Monos was built
+                different. Every detail matters. The way the zippers feel. How the handle sits in your hand. The
+                materials that actually get better with time.
+            </p>
+
+            <div class="visualization">
+                👜 ➡️ 🤔 ➡️ 😍
+            </div>
+
+            <div class="fact-box">
+                Imagine a backpack that's actually perfect. That packs like a dream. That survives getting thrown around
+                at the airport. That your little brother can't break no matter how hard he tries. That's Monos. It's not
+                just luggage—it's peace of mind with a handle.
+            </div>
+
+            <div class="image-placeholder">
+                <span class="image-label">🖼️ SUGGESTED IMAGE:</span>
+                Close-up detail shots: zippers in action, smooth handles, material texture, suitcase corner protection
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="breakwall">
+                📢 Here's the secret: A newsletter talking passionately about luggage is kind of ridiculous. But that's
+                how good Monos is. We literally can't help ourselves. 😄
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌍 Your Next Adventure Starts Here</h2>
+            <p class="section-subtitle">✨ What Will You Explore?</p>
+
+            <p class="kid-friendly">
+                Think about it: Where do you want to go? The mountains? The beach? A big city? A quiet forest? Your
+                grandma's house? Wherever it is, imagine taking it with a Monos suitcase that makes packing easy and
+                keeps your stuff safe. That's the feeling we're going for.
+            </p>
+
+            <div class="visualization">
+                🏖️ 🏔️ 🏙️ 🏕️ 🌲
+            </div>
+
+            <div class="image-placeholder">
+                <span class="image-label">🖼️ SUGGESTED IMAGE:</span>
+                Inspiring travel destinations—beautiful landscapes, cities, nature scenes with Monos suitcase featured
+                prominently
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">
+                <strong>Monos Travel</strong><br>
+                Headquarters: New York, NY | Shipped Globally
+            </p>
+            <p class="footer-text" style="margin-top: 20px;">
+                <strong>🎯 What We're About:</strong><br>
+                Thoughtfully designed. Beautifully built. Built to last.
+            </p>
+            <p class="footer-text" style="margin-top: 20px; font-size: 12px; color: #999;">
+                Newsletter sent October 28, 2025<br>
+                From the Monos team to thoughtful travelers (and future travelers!) everywhere
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
